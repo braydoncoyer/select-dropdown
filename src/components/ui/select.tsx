@@ -136,18 +136,19 @@ function SelectItem({
       ref={itemRef}
       data-slot="select-item"
       className={cn(
-        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] relative flex cursor-default items-center gap-2 rounded-[12px] pr-12 pl-8 py-2 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12",
+        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] group relative flex cursor-default items-center rounded-[12px] py-2 pl-4 pr-4 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12 hover:bg-white/20 data-[state=checked]:bg-white/20 focus:bg-white/20",
         rotationClass,
         className
       )}
       {...props}
     >
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
-        <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-4" />
-        </SelectPrimitive.ItemIndicator>
-      </span>
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      <div className="flex items-center w-full">
+        <span className="flex size-4 items-center justify-center mr-2 flex-shrink-0 relative">
+          <CheckIcon className="size-4 text-emerald-500 absolute opacity-0 invisible group-data-[state=checked]:opacity-100 group-data-[state=checked]:visible" />
+          <CheckIcon className="size-4 text-white absolute opacity-0 invisible group-hover:opacity-20 group-hover:visible group-focus:opacity-20 group-focus:visible group-data-[highlighted]:opacity-20 group-data-[highlighted]:visible group-data-[state=checked]:!opacity-0 group-data-[state=checked]:!invisible" />
+        </span>
+        <SelectPrimitive.ItemText className="flex-1">{children}</SelectPrimitive.ItemText>
+      </div>
     </SelectPrimitive.Item>
   );
 }

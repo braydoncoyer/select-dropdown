@@ -137,21 +137,25 @@
     );
     border: 1px solid var(--select-trigger-border);
   }
-  
-  [data-slot="select-content"] {
-    background: transparent !important;
-    overflow: visible !important;
-    max-height: none !important;
+
+  [data-slot="select-item"]:hover,
+  [data-slot="select-item"]:focus,
+  [data-slot="select-item"][data-highlighted] {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+      ),
+      linear-gradient(
+        to right,
+        var(--select-trigger-bg-start),
+        var(--select-trigger-bg-end)
+      );
   }
-  
+
   [data-radix-select-viewport] {
     overflow: visible !important;
     max-height: none !important;
-  }
-  
-  [data-slot="select-scroll-up-button"],
-  [data-slot="select-scroll-down-button"] {
-    background: transparent !important;
   }
 }
 
@@ -168,40 +172,19 @@
     transform: rotate(-1deg);
     transform-origin: right center;
   }
+
   .rotate-item-2 {
     transform: rotate(-2deg);
     transform-origin: right center;
   }
+
   .rotate-item-3 {
     transform: rotate(-3deg);
     transform-origin: right center;
   }
+
   .rotate-item-4 {
     transform: rotate(-4deg);
-    transform-origin: right center;
-  }
-  .rotate-item-5 {
-    transform: rotate(-5deg);
-    transform-origin: right center;
-  }
-  .rotate-item-6 {
-    transform: rotate(-6deg);
-    transform-origin: right center;
-  }
-  .rotate-item-7 {
-    transform: rotate(-7deg);
-    transform-origin: right center;
-  }
-  .rotate-item-8 {
-    transform: rotate(-8deg);
-    transform-origin: right center;
-  }
-  .rotate-item-9 {
-    transform: rotate(-9deg);
-    transform-origin: right center;
-  }
-  .rotate-item-10 {
-    transform: rotate(-10deg);
     transform-origin: right center;
   }
 }
