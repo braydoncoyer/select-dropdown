@@ -1,70 +1,24 @@
-# React + TypeScript + Vite
+## Braydon <> Laravel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hey, team!
+Thanks for giving me the opportunity to work on a cool project! I had a blast working on this select element, and wanted to walk you through a few things and my thought process.
 
-Currently, two official plugins are available:
+### Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Although this project is pretty basic, I wanted to highlight a few things worth mentioning:
 
-## Expanding the ESLint configuration
+1. Opening up/down – The select handles both. In the mocks, each item rotates more (1 degree more) as you go down the list. That rotation needed to flip when the menu opens upward, and even though there weren’t mocks for that case, I went ahead and built it anyway.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Limit prop – The rotation gets wild with lots of items, so I added a prop that lets you control how many options show. The design only showed 4, but giving devs the option felt right.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. Noise overlay – Instead of dropping in a static image like the Figma had, I generated it with an SVG. Very close to the same look, but better performance.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+4. Hover/focus states – The mocks didn’t include any, but I added them anyway for both the trigger and items. Makes it way easier to see where you are.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Thought process
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Instead of rolling my own select component from scratch, I used shadcn/ui as the foundation. It’s already solid when it comes to accessibility, it's easy to extend, and it plays nicely with Tailwind.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+For animations, I stuck with Tailwind and native CSS as much as possible. I thought about pulling in Motion and trying to really animate the heck out of this thing, but honestly, sometimes less is more. Too many unneeded animations would end up frustrating the end user. This scores a nice balance. What do you think?
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# select-dropdown
+Small disclaimer: Claude Code wrote a decent amount of the actual code here. As someone who has been writing Angular code for the last 5 years, it really helped me get going quickly. My role was in steering; using my experience to shape the prompts, review the output, and make sure the end result met the design and dev standards. So while AI did a decent amount the heavy lifting, the quality comes from my expertise and knowledge of how things should be done.
