@@ -139,7 +139,6 @@
     border: 1px solid var(--select-trigger-border);
   }
 
-  /* Style the Laracon label SelectValue */
   [data-slot="select-value-label"] {
     font-family: Inter, sans-serif;
     font-weight: 600;
@@ -189,23 +188,13 @@
       0px 231px 65px 0px rgba(0, 0, 0, 0.01);
   }
 
-  .rotate-item-1 {
-    transform: rotate(-1deg);
+  .select-item-rotate {
     transform-origin: right center;
+    transform: rotate(calc(var(--item-index, 1) * -1deg));
   }
 
-  .rotate-item-2 {
-    transform: rotate(-2deg);
-    transform-origin: right center;
-  }
-
-  .rotate-item-3 {
-    transform: rotate(-3deg);
-    transform-origin: right center;
-  }
-
-  .rotate-item-4 {
-    transform: rotate(-4deg);
-    transform-origin: right center;
+  /* When opening upward, reverse the order and use positive rotations */
+  [data-side="top"] .select-item-rotate {
+    transform: rotate(calc((5 - var(--item-index, 1)) * 1deg));
   }
 }

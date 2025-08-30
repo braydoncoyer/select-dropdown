@@ -135,14 +135,13 @@ function SelectItem({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Item>) {
   const itemRef = React.useRef<HTMLDivElement>(null);
-  const [rotationClass, setRotationClass] = React.useState("");
 
   React.useEffect(() => {
     if (itemRef.current) {
       const parent = itemRef.current.parentElement;
       if (parent) {
         const index = Array.from(parent.children).indexOf(itemRef.current) + 1;
-        setRotationClass(`rotate-item-${Math.min(index, 10)}`);
+        itemRef.current.style.setProperty("--item-index", index.toString());
       }
     }
   }, []);
@@ -152,8 +151,7 @@ function SelectItem({
       ref={itemRef}
       data-slot="select-item"
       className={cn(
-        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] group relative flex cursor-default items-center rounded-[12px] py-2 pl-4 pr-4 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12 hover:bg-white/20 data-[state=checked]:bg-white/20 focus:bg-white/20",
-        rotationClass,
+        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] group relative flex cursor-default items-center rounded-[12px] py-2 pl-4 pr-4 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12 hover:bg-white/20 data-[state=checked]:bg-white/20 focus:bg-white/20 select-item-rotate",
         className
       )}
       {...props}
