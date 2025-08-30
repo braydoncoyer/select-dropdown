@@ -66,12 +66,16 @@ function SelectTrigger({
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            className="transition-transform duration-200 ease-in-out"
+            style={{ transformOrigin: '6px 8.5px' }}
             d="M9.5 8.5L6 11.5L2.5 8.5"
             stroke="#10B981"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
+            className="transition-transform duration-200 ease-in-out"
+            style={{ transformOrigin: '6px 3.5px' }}
             d="M2.5 3.5L6 0.5L9.5 3.5"
             stroke="#10B981"
             stroke-linecap="round"

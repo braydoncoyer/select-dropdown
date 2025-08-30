@@ -183,4 +183,21 @@
   [data-side="top"] .select-item-rotate {
     transform: rotate(calc((5 - var(--item-index, 1)) * 1deg));
   }
+
+  /* Arrow animation on select open/close */
+  [data-slot="select-trigger"] svg path {
+    --arrow-spacing: 0px;
+  }
+
+  [data-state="open"] svg path {
+    --arrow-spacing: 3px;
+  }
+
+  [data-state="open"] svg path:first-child {
+    transform: rotate(180deg) translateY(calc(var(--arrow-spacing) * -1));
+  }
+
+  [data-state="open"] svg path:last-child {
+    transform: rotate(180deg) translateY(var(--arrow-spacing));
+  }
 }
