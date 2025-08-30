@@ -48,6 +48,7 @@
   --select-trigger-bg-start: #141414;
   --select-trigger-bg-end: #1f1f1f;
   --select-trigger-border: #262626;
+  --laracon-label-color: #737373;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -136,6 +137,26 @@
       var(--select-trigger-bg-end)
     );
     border: 1px solid var(--select-trigger-border);
+  }
+
+  /* Style the Laracon label SelectValue */
+  [data-slot="select-value-label"] {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 11px;
+    letter-spacing: -0.02em;
+    color: var(--laracon-label-color);
+    opacity: 0;
+    margin-bottom: -7px;
+  }
+
+  /* Show Laracon label when SelectValue has content (not placeholder) */
+  [data-slot="select-trigger"]:has(
+      [data-slot="select-value"]:not([data-placeholder])
+    )
+    [data-slot="select-value-label"] {
+    opacity: 1;
   }
 
   [data-slot="select-item"]:hover,

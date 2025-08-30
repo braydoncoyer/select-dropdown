@@ -17,9 +17,23 @@ function SelectGroup({
 }
 
 function SelectValue({
+  placeholder,
+  className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
+  return (
+    <div className={cn("flex flex-col items-start space-y-0", className)}>
+      <SelectPrimitive.Value data-slot="select-value-label" placeholder="">
+        Laracon
+      </SelectPrimitive.Value>
+      <SelectPrimitive.Value
+        data-slot="select-value"
+        placeholder={placeholder}
+        className="font-inter font-semibold text-base leading-6 tracking-[-0.02em] text-white data-[placeholder]:font-semibold data-[placeholder]:text-base data-[placeholder]:leading-6 data-[placeholder]:tracking-[-0.02em]"
+        {...props}
+      />
+    </div>
+  );
 }
 
 function SelectTrigger({
@@ -35,16 +49,18 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] data-[placeholder]:text-white [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-[12px] px-4 py-2 whitespace-nowrap shadow-select-trigger transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 h-12 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] data-[placeholder]:text-white [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-[12px] px-4 py-2 whitespace-nowrap shadow-select-trigger transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 h-12 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 relative [&[data-placeholder]_.checkmark-icon]:opacity-0 [&[data-placeholder]_.checkmark-icon]:invisible [&:not([data-placeholder])_.checkmark-icon]:opacity-100 [&:not([data-placeholder])_.checkmark-icon]:visible [&:not([data-placeholder])]:pl-10",
         className
       )}
       {...props}
     >
+      <span className="checkmark-icon absolute left-4 size-4 items-center justify-center flex">
+        <CheckIcon className="size-4 text-emerald-500" />
+      </span>
       {children}
       <SelectPrimitive.Icon asChild>
         <svg
-          width="7"
-          height="11"
+          className="size-[11px]"
           viewBox="0 0 12 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +163,9 @@ function SelectItem({
           <CheckIcon className="size-4 text-emerald-500 absolute opacity-0 invisible group-data-[state=checked]:opacity-100 group-data-[state=checked]:visible" />
           <CheckIcon className="size-4 text-white absolute opacity-0 invisible group-hover:opacity-20 group-hover:visible group-focus:opacity-20 group-focus:visible group-data-[highlighted]:opacity-20 group-data-[highlighted]:visible group-data-[state=checked]:!opacity-0 group-data-[state=checked]:!invisible" />
         </span>
-        <SelectPrimitive.ItemText className="flex-1">{children}</SelectPrimitive.ItemText>
+        <SelectPrimitive.ItemText className="flex-1">
+          {children}
+        </SelectPrimitive.ItemText>
       </div>
     </SelectPrimitive.Item>
   );
