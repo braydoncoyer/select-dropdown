@@ -49,7 +49,7 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] data-[placeholder]:text-white [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-[12px] px-4 py-2 whitespace-nowrap shadow-select-trigger transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 h-12 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 relative [&[data-placeholder]_.checkmark-icon]:opacity-0 [&[data-placeholder]_.checkmark-icon]:invisible [&:not([data-placeholder])_.checkmark-icon]:opacity-100 [&:not([data-placeholder])_.checkmark-icon]:visible [&:not([data-placeholder])]:pl-10",
+        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] data-[placeholder]:text-white [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-[12px] px-4 py-2 whitespace-nowrap shadow-select-trigger outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 h-12 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 relative [&[data-placeholder]_.checkmark-icon]:opacity-0 [&[data-placeholder]_.checkmark-icon]:invisible [&:not([data-placeholder])_.checkmark-icon]:opacity-100 [&:not([data-placeholder])_.checkmark-icon]:visible [&:not([data-placeholder])]:pl-10",
         className
       )}
       {...props}
@@ -151,7 +151,7 @@ function SelectItem({
       ref={itemRef}
       data-slot="select-item"
       className={cn(
-        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] group relative flex cursor-default items-center rounded-[12px] py-2 pl-4 pr-4 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12 hover:bg-white/20 data-[state=checked]:bg-white/20 focus:bg-white/20 select-item-rotate",
+        "font-inter text-white font-semibold text-base leading-6 tracking-[-0.02em] group relative flex cursor-default items-center rounded-[12px] py-2 pl-4 pr-4 outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 w-[var(--radix-select-trigger-width)] h-12 hover:ring-[3px] hover:ring-ring/50 focus:ring-[3px] focus:ring-ring/50 data-[highlighted]:ring-[3px] data-[highlighted]:ring-ring/50 select-item-rotate",
         className
       )}
       {...props}

@@ -158,20 +158,6 @@
     opacity: 1;
   }
 
-  [data-slot="select-item"]:hover,
-  [data-slot="select-item"]:focus,
-  [data-slot="select-item"][data-highlighted] {
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.2)
-      ),
-      linear-gradient(
-        to right,
-        var(--select-trigger-bg-start),
-        var(--select-trigger-bg-end)
-      );
-  }
 
   [data-radix-select-viewport] {
     overflow: visible !important;
