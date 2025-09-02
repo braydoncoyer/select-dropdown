@@ -20,6 +20,7 @@ function App() {
           <SelectItem value="Brisbane">Brisbane, Australia</SelectItem>
           <SelectItem value="Amsterdam">Amsterdam, Netherlands</SelectItem>
           <SelectItem value="Gandhinagar">Gandhinagar, India</SelectItem>
+          {/* These items below won't show because of the maxItems prop on the Select component */}
           <SelectItem value="London">London, UK</SelectItem>
           <SelectItem value="Toronto">Toronto, Canada</SelectItem>
         </SelectContent>
