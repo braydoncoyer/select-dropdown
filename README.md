@@ -54,3 +54,9 @@ I put together a slightly different version inspired by the original design, but
 - I left out the inline “Laracon” label when an item is selected. Personally, it felt a bit redundant. In a real app, we’d probably have this inside a form with proper labels to make things explicit anyway.
 
 And naturally, full accessibility, keyboard navigation, and proper up/down opening based on available space all still work. Nothing too flashy—just a clean, snappy experience.
+
+## Running the project
+
+- Run `npm install`
+- Run `npm run dev`
+- Open project on `http://localhost:5173`
