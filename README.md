@@ -1,28 +1,53 @@
-## Braydon <> Laravel
+# Braydon 🤝 Laravel
 
-Hey, team!
-Thanks for giving me the opportunity to work on a cool project! I had a blast working on this select element, and wanted to walk you through a few things and my thought process.
+Hey team!
 
-### Highlights
+Thanks again for letting me jump in on this project. I had a blast working on the select element and wanted to share a quick walkthrough of what I built, why I made certain decisions, and some extras I sprinkled in along the way.
 
-Although this project is pretty basic, I wanted to highlight a few things worth mentioning:
+---
 
-1. Opening up/down – The select handles both. In the mocks, each item rotates more (1 degree more) as you go down the list. That rotation needed to flip when the menu opens upward, and even though there weren’t mocks for that case, I went ahead and built it anyway.
+## Quick Note
 
-2. Limit prop – The rotation gets wild with lots of items, so I added a prop that lets you control how many options show. The design only showed 4, but giving devs the option felt right.
+I began with the original select component, aiming to faithfully reflect the design. After meeting with Hank, he suggested I also create a second version -- “my take” -- to explore how I might enhance both the design and functionality.
 
-3. Noise overlay – Instead of dropping in a static image like the Figma had, I generated it with an SVG. Very close to the same look, but better performance.
+Below I'll talk about:
 
-4. Hover/focus states – The mocks didn’t include any, but I added them anyway for both the trigger and items. Makes it way easier to see where you are.
+1. The original implementation (true to the design).
+2. My own interpretation of the problem, with a few tweaks and enhancements.
 
-### Thought process
+---
 
-Instead of rolling my own select component from scratch, I used shadcn/ui as the foundation. It’s already solid when it comes to accessibility, it's easy to extend, and it plays nicely with Tailwind.
+## Highlights (original design)
 
-For animations, I stuck with Tailwind and native CSS as much as possible. I thought about pulling in Motion and trying to really animate the heck out of this thing, but honestly, sometimes less is more. Too many unneeded animations would end up frustrating the end user. This scores a nice balance. What do you think?
+Even though this was a fairly small project, there were a few details worth calling out:
 
-Small disclaimer: Claude Code wrote a decent amount of the actual code here. As someone who has been writing Angular code for the last 5 years, it really helped me get going quickly. My role was in steering; using my experience to shape the prompts, review the output, and make sure the end result met the design and dev standards. So while AI did a decent amount the heavy lifting, the quality comes from my expertise and knowledge of how things should be done.
+1. **Opening up or down** – The select works in both directions. In the mocks, each item rotated slightly more as you went down the list. That rotation needed to flip when the menu opened upward. There weren’t mocks for that case, but I went ahead and built it anyway.
 
-## My take
+2. **Limit prop** – With lots of items, the rotation gets wild. I added a `limit` prop so devs can control how many options show. The design had 4, but flexibility for future use felt right.
 
-New version takes inspiration from the design, but tightens it up a bit. It's a bit smaller in width and height, and just feels a bit tighter in general. Instead of each select item having their own background color, we use the when the item is hovered or focused. To add a bit of dynamic look, the shadow from the select casts over each of the select items, giving it more of a dynamic look without being too drastic. Additionally, to add some color and quickly distinguish between each Laracon location, I added an image of the geographical flag for that location. Side note -- how could would it be to have each select item's background to have a faded and animated version of the flag that plays when hovered. As you would expect, this version remains completely accessible with full keyboard navigation support, the values open up or down depending on the space allotted, etc. There's nothing too flashy with this option; it looks clean while providing a great snappy user experience.
+3. **Noise overlay** – Instead of exporting a PNG from the Figma mocks and dropping it in, I generated it with SVG. Looks basically the same but runs smoother.
+
+4. **Hover/focus states** – The mocks didn’t have any, so I added them for both the trigger and items. Small thing, but it makes navigation so much clearer.
+
+---
+
+## My Thought Process (original design)
+
+I started with shadcn/ui as the foundation rather than rolling my own from scratch. It’s already strong on accessibility, easy to extend, and plays well with Tailwind.
+
+For animations, I leaned on Tailwind and native CSS. I considered going wild with Motion, but honestly, too many animations just get in the way. This version strikes a balance: smooth and playful without being distracting.
+
+Quick disclaimer: Claude Code helped with a chunk of the raw code. Since I’ve been living in Angular for the past 5 years, it gave me a faster ramp-up. My real role was guiding it—using my experience to shape prompts, review the output, and refine until it matched the design and dev standards. AI may have done a chunk of the typing, but the quality comes from knowing what _should_ be built.
+
+---
+
+## My Take
+
+I put together a slightly different version inspired by the original design, but a bit more put together:
+
+- The select is a bit more compact in both width and height. Feels tighter overall.
+- Instead of each item having its own background color, the background only shows on hover/focus. Cleaner, less noisy.
+- The select’s shadow subtly casts over the items, giving depth without being over the top.
+- Each Laracon location gets a small geographical flag next to it. I think this makes it easier to quickly locate an option closest to the user. (Side idea: imagine a faded, animated version of the flag playing in the background on hover 👀).
+
+And naturally, full accessibility, keyboard navigation, and proper up/down opening based on available space all still work. Nothing too flashy—just a clean, snappy experience.
