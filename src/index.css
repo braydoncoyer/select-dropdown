@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 @theme inline {
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);

@@ -8,11 +8,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  BraydonSelect,
-  BraydonSelectContent,
-  BraydonSelectItem,
-  BraydonSelectTrigger,
-  BraydonSelectValue,
+  BcSelect,
+  BcSelectValue,
+  BcSelectTrigger,
+  BcSelectContent,
+  BcSelectLabel,
+  BcSelectItem,
+  BcSelectGroup,
 } from "./components/ui/braydon-select";
 
 function App() {
@@ -34,28 +36,56 @@ function App() {
           </SelectContent>
         </Select>
 
-        <BraydonSelect maxItems={4}>
-          <BraydonSelectTrigger className="w-[300px] h-[48px]">
-            <BraydonSelectValue placeholder="Select a Laracon" />
-          </BraydonSelectTrigger>
-          <BraydonSelectContent>
-            <BraydonSelectItem value="Denver">Denver, USA</BraydonSelectItem>
-            <BraydonSelectItem value="Brisbane">
-              Brisbane, Australia
-            </BraydonSelectItem>
-            <BraydonSelectItem value="Amsterdam">
-              Amsterdam, Netherlands
-            </BraydonSelectItem>
-            <BraydonSelectItem value="Gandhinagar">
-              Gandhinagar, India
-            </BraydonSelectItem>
-            {/* These items below won't show because of the maxItems prop on the Select component */}
-            <BraydonSelectItem value="London">London, UK</BraydonSelectItem>
-            <BraydonSelectItem value="Toronto">
-              Toronto, Canada
-            </BraydonSelectItem>
-          </BraydonSelectContent>
-        </BraydonSelect>
+        <BcSelect>
+          <BcSelectTrigger className="w-[260px]">
+            <BcSelectValue placeholder="Select a Laracon" />
+          </BcSelectTrigger>
+          <BcSelectContent>
+            <BcSelectGroup>
+              <BcSelectLabel>Locations</BcSelectLabel>
+              <BcSelectItem value="Denver">
+                <div className="flex space-x-2 items-center">
+                  <img
+                    className="size-4"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/United-states_flag_icon_round.svg/1024px-United-states_flag_icon_round.svg.png"
+                    alt=""
+                  />{" "}
+                  <span>Denver, USA</span>
+                </div>
+              </BcSelectItem>
+              <BcSelectItem value="Brisbane">
+                <div className="flex space-x-2 items-center">
+                  <img
+                    className="size-4"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Australia_flag_icon_round.svg/2048px-Australia_flag_icon_round.svg.png"
+                    alt=""
+                  />{" "}
+                  <span>Brisbane, Australia</span>
+                </div>
+              </BcSelectItem>
+              <BcSelectItem value="Amsterdam">
+                <div className="flex space-x-2 items-center">
+                  <img
+                    className="size-4"
+                    src="https://cloudscene.global.ssl.fastly.net/CountryFlags/NL.png"
+                    alt=""
+                  />{" "}
+                  <span>Amsterdam, Netherlands</span>
+                </div>
+              </BcSelectItem>
+              <BcSelectItem value="Gandhinagar">
+                <div className="flex space-x-2 items-center">
+                  <img
+                    className="size-4"
+                    src="https://vectorflags.s3.amazonaws.com/flags/in-circle-01.png"
+                    alt=""
+                  />{" "}
+                  <span>Gandhinagar, India</span>
+                </div>
+              </BcSelectItem>
+            </BcSelectGroup>
+          </BcSelectContent>
+        </BcSelect>
       </div>
     </div>
   );
