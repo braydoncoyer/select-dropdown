@@ -16,15 +16,36 @@ const BcSelectTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
+    data-slot="select-trigger"
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      "font-inter text-white text-sm font-semibold leading-6 tracking-[-0.02em] data-[placeholder]:text-white [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex w-fit items-center justify-between gap-2 rounded-[12px] px-4 py-2 whitespace-nowrap shadow-select-trigger outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 h-12 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
       className
     )}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <svg
+        className="size-[11px] select-trigger-arrows"
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="transition-transform duration-200 ease-in-out stroke-emerald-500"
+          style={{ transformOrigin: "6px 8.5px" }}
+          d="M9.5 8.5L6 11.5L2.5 8.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          className="transition-transform duration-200 ease-in-out stroke-emerald-500"
+          style={{ transformOrigin: "6px 3.5px" }}
+          d="M2.5 3.5L6 0.5L9.5 3.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -125,7 +146,7 @@ const BcSelectItem = React.forwardRef<
 
     <span className="flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
+        <Check className="h-4 w-4 text-emerald-500" />
       </SelectPrimitive.ItemIndicator>
     </span>
   </SelectPrimitive.Item>
