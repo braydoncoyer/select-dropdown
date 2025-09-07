@@ -24,7 +24,6 @@
   --muted-foreground: #b3b3b3;
   --border: rgba(255, 255, 255, 0.1);
   --ring: #b3b3b3;
-  --destructive: #ef4444;
 }
 
 @layer base {
@@ -33,8 +32,8 @@
   }
   body {
     background: radial-gradient(
-      60.71% 59.64% at 22.3% 0%,
-      var(--gradient-start) 0%,
+      50% 60% at 20% 0%,
+      var(--gradient-start) 50%,
       var(--gradient-end) 100%
     );
     @apply text-foreground;
